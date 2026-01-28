@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { HighlightCard } from '@/components/Card'
 import VentureCard from '@/components/VentureCard'
 import InnovationCard from '@/components/InnovationCard'
 import PhotoGallery from '@/components/PhotoGallery'
@@ -45,7 +44,7 @@ export default async function HomePage() {
           <div className="section__header">
             <div>
               <h2 className="section__title">Ventures</h2>
-              <p className="section__subtitle">Startups I've founded and co-founded</p>
+              <p className="section__subtitle">Startups I&apos;ve founded and co-founded</p>
             </div>
             <a href="/portfolio#ventures" className="btn btn--outline btn--sm">View all →</a>
           </div>

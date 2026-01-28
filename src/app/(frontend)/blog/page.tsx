@@ -22,6 +22,16 @@ export default async function BlogPage() {
     // Group posts by category for filtering
     const categories = ['All', 'AI', 'Finance', 'Leadership', 'Product', 'Tech']
 
+    // Interface for Post to avoid 'any'
+    interface Post {
+        id: string
+        title: string
+        slug: string
+        category?: string
+        excerpt?: string
+        featuredImage?: string | { url: string }
+    }
+
     return (
         <main>
             {/* Blog - Combined Header and Posts */}
@@ -57,41 +67,44 @@ export default async function BlogPage() {
                                 </p>
                             </div>
                         ) : (
-                            posts.docs.map((post: any) => (
-                                <article key={post.id} className="card">
-                                    {post.featuredImage && (
-                                        <div className="card__image">
-                                            <Image
-                                                src={
-                                                    typeof post.featuredImage === 'string'
-                                                        ? post.featuredImage
-                                                        : post.featuredImage.url || '/images/placeholder.jpg'
-                                                }
-                                                alt={post.title}
-                                                width={400}
-                                                height={250}
-                                                style={{ width: '100%', height: 'auto' }}
-                                            />
+                            posts.docs.map((post: unknown) => {
+                                const p = post as Post;
+                                return (
+                                    <article key={p.id} className="card">
+                                        {p.featuredImage && (
+                                            <div className="card__image">
+                                                <Image
+                                                    src={
+                                                        typeof p.featuredImage === 'string'
+                                                            ? p.featuredImage
+                                                            : p.featuredImage.url || '/images/placeholder.jpg'
+                                                    }
+                                                    alt={p.title}
+                                                    width={400}
+                                                    height={250}
+                                                    style={{ width: '100%', height: 'auto' }}
+                                                />
+                                            </div>
+                                        )}
+                                        <div className="card__body">
+                                            <span className="text-small" style={{ color: 'var(--color-text-muted)' }}>
+                                                {p.category || 'Uncategorized'}
+                                            </span>
+                                            <h4 className="card__title" style={{ marginTop: 'var(--space-2)' }}>
+                                                <Link href={`/blog/${p.slug}`}>{p.title}</Link>
+                                            </h4>
+                                            {p.excerpt && <p className="card__text">{p.excerpt}</p>}
+                                            <Link
+                                                href={`/blog/${p.slug}`}
+                                                className="text-small"
+                                                style={{ fontWeight: 'var(--font-semibold)' }}
+                                            >
+                                                Read More →
+                                            </Link>
                                         </div>
-                                    )}
-                                    <div className="card__body">
-                                        <span className="text-small" style={{ color: 'var(--color-text-muted)' }}>
-                                            {post.category || 'Uncategorized'}
-                                        </span>
-                                        <h4 className="card__title" style={{ marginTop: 'var(--space-2)' }}>
-                                            <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                                        </h4>
-                                        {post.excerpt && <p className="card__text">{post.excerpt}</p>}
-                                        <Link
-                                            href={`/blog/${post.slug}`}
-                                            className="text-small"
-                                            style={{ fontWeight: 'var(--font-semibold)' }}
-                                        >
-                                            Read More →
-                                        </Link>
-                                    </div>
-                                </article>
-                            ))
+                                    </article>
+                                )
+                            })
                         )}
                     </div>
                 </div>

@@ -26,6 +26,7 @@ export async function generateStaticParams() {
         limit: 1000,
     })
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return posts.docs.map((post: any) => ({
         slug: post.slug,
     }))
@@ -116,6 +117,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     {/* Tags */}
                     {post.tags && post.tags.length > 0 && (
                         <div className="flex gap-2 flex-wrap">
+                            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                             {post.tags.map((tagItem: any, index: number) => {
                                 const tagText = typeof tagItem === 'string' ? tagItem : tagItem?.tag || '';
                                 return (
@@ -186,6 +188,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 }
 
 // Simple Rich Text Renderer for Payload Lexical Editor
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function RenderRichText({ content }: { content: any }): React.ReactElement | null {
     if (!content) return null;
 
@@ -198,6 +201,7 @@ function RenderRichText({ content }: { content: any }): React.ReactElement | nul
 
     return (
         <div className="rich-text">
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {nodes.map((node: any, index: number) => (
                 <RenderNode key={index} node={node} />
             ))}
@@ -205,6 +209,7 @@ function RenderRichText({ content }: { content: any }): React.ReactElement | nul
     );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function RenderNode({ node }: { node: any }) {
     if (!node) return null;
 
@@ -255,11 +260,13 @@ function blockquote({ children }: { children: React.ReactNode }) {
 }
 
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function renderChildren(children: any[]) {
     if (!children || !Array.isArray(children)) {
         return null
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return children.map((child: any, index: number) => (
         <RenderNode key={index} node={child} />
     ))

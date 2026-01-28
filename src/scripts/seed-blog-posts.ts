@@ -2,6 +2,7 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 
 // Existing blog posts from the old HTML site
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const existingBlogPosts: any[] = [
     {
         title: 'Deep Learning DevCon (DLDC) 2023: Top Highlights and Insights',

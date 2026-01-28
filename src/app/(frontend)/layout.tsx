@@ -2,6 +2,28 @@ import React from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import '../globals.css'
+import { Inter, Lato, DM_Serif_Text } from 'next/font/google'
+
+// Configure fonts using Next.js font optimization
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['300', '400', '700', '900'],
+  variable: '--font-lato',
+  display: 'swap',
+})
+
+const dmSerifText = DM_Serif_Text({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-dm-serif',
+  display: 'swap',
+})
 
 export const metadata = {
   title: 'Rathnakumar | RK - Data Science & AI Product Leader',
@@ -12,16 +34,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en">
-      <head>
-        {/* Google Fonts - Curious Maverick inspired typography */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Fragment+Mono&family=Inter:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`${inter.variable} ${lato.variable} ${dmSerifText.variable}`}>
       <body>
         <Header />
         <main>{children}</main>

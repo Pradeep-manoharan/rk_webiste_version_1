@@ -3,6 +3,7 @@ import config from '@/payload.config'
 import { NextRequest, NextResponse } from 'next/server'
 
 // Existing blog posts from the old HTML site
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const existingBlogPosts: any[] = [
     {
         title: 'Deep Learning DevCon (DLDC) 2023: Top Highlights and Insights',
@@ -260,7 +261,8 @@ const existingBlogPosts: any[] = [
     },
 ]
 
-export async function GET(request: NextRequest) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export async function GET(_request: NextRequest) {
     try {
         const payload = await getPayload({ config })
 
@@ -326,13 +328,15 @@ export async function GET(request: NextRequest) {
             },
             results,
         })
-    } catch (error: any) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: unknown) {
         console.error('Error seeding blog posts:', error)
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
         return NextResponse.json(
             {
                 success: false,
                 error: 'Failed to seed blog posts',
-                details: error.message,
+                details: errorMessage,
             },
             { status: 500 }
         )

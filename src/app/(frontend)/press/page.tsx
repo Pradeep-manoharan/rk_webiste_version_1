@@ -31,7 +31,7 @@ export default function PressPage() {
                                 <span className="press-card__source">New York Weekly</span>
                                 <h3 className="press-card__title">The Data Science Titan Empowering the Global Tech Landscape</h3>
                                 <p className="press-card__excerpt">
-                                    An in-depth feature on Rathnakumar's journey from founding India's first crowdfunding platform
+                                    An in-depth feature on Rathnakumar&apos;s journey from founding India&apos;s first crowdfunding platform
                                     to becoming a recognized leader in AI and Data Science at Fortune 500 companies.
                                 </p>
                                 <span className="press-card__link">Read Article →</span>
