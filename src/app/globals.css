@@ -591,15 +591,16 @@ p {
 
 @media (min-width: 810px) {
   .section {
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding: var(--space-8) 0;
+    /* Removed min-height: 100vh to allow content to determine height */
+    min-height: auto;
+    padding: var(--space-6) 0;
   }
 }
 
 @media (min-width: 1200px) {
   .section {
-    padding: var(--space-16) 0;
+    padding: var(--space-8) 0;
+    /* Reduced from space-16 (64px) to space-8 (32px) */
   }
 }
 
@@ -712,8 +713,9 @@ p {
 .section__header {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  margin-bottom: var(--space-6);
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  /* Reduced from space-6 */
   text-align: center;
 }
 
