@@ -3,7 +3,7 @@ import config from '@/payload.config'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 600 // Revalidate every 10 minutes
 
 export default async function BlogPage() {
     const payload = await getPayload({ config })

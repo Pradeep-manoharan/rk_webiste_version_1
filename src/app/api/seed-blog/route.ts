@@ -261,7 +261,6 @@ const existingBlogPosts: any[] = [
     },
 ]
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(_request: NextRequest) {
     try {
         const payload = await getPayload({ config })

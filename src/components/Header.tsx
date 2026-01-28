@@ -67,8 +67,6 @@ export default function Header() {
                         <Link href="/press" className="header__nav-link">Press</Link>
                         <div className="header__dropdown">
                             <Link href="/press#featured" className="header__dropdown-link">Featured Articles</Link>
-                            <Link href="/press#media" className="header__dropdown-link">Media Mentions</Link>
-                            <Link href="/press#speaking" className="header__dropdown-link">Speaking Engagements</Link>
                         </div>
                     </div>
 

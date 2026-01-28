@@ -17,8 +17,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Scroll snap for section-by-section scrolling */
-  scroll-snap-type: y mandatory;
+  /* Scroll snap for section-by-section scrolling - using proximity to prevent forced jumps */
+  scroll-snap-type: y proximity;
 }
 
 /* Free scroll utility for pages with long content (like Blog posts) */

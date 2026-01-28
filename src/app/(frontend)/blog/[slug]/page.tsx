@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 600 // Revalidate every 10 minutes
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         : ''
 
     return (
-        <main>
+        <main style={{ minHeight: '100vh' }}>
             {/* Blog Post Header */}
             <section
                 className="section--free"
@@ -70,6 +70,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     paddingTop: 'calc(var(--header-height) + 2rem)',
                     paddingBottom: '2rem',
                     background: 'var(--color-gray-50)',
+                    minHeight: '40vh', // Ensure header takes some space
                 }}
             >
                 <div className="container" style={{ maxWidth: '800px' }}>
