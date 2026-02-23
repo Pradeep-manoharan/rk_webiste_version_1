@@ -154,6 +154,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                 }
                                 alt={post.title}
                                 fill
+                                unoptimized
                                 style={{ objectFit: 'cover' }}
                                 priority
                             />

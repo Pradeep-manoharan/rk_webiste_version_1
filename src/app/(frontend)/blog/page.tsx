@@ -82,6 +82,7 @@ export default async function BlogPage() {
                                                     alt={p.title}
                                                     width={400}
                                                     height={250}
+                                                    unoptimized
                                                     style={{ width: '100%', height: 'auto' }}
                                                 />
                                             </div>
