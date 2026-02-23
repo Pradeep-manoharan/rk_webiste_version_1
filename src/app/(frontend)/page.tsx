@@ -20,7 +20,7 @@ export default async function HomePage() {
               </p>
               <div className="hero__cta">
                 <a href="#ventures" className="btn btn--accent">View My Work</a>
-                <a href="https://calendly.com/rathnakumarudayakumar" className="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                <a href="https://forms.zohopublic.com/openventure1/form/OpenVentureProfileEvaluationWebsite/formperma/4nLvliOoETVHOSNXXApQ7p7wuUPCXUwBFdtKAk8a8dk" className="btn btn--outline" target="_blank" rel="noopener noreferrer">
                   Schedule a Call
                 </a>
               </div>

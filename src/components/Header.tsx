@@ -57,7 +57,6 @@ export default function Header() {
                         <div className="header__dropdown">
                             <Link href="/portfolio#books" className="header__dropdown-link">Books & Publications</Link>
                             <Link href="/portfolio#patents" className="header__dropdown-link">Patents</Link>
-                            <Link href="/portfolio#awards" className="header__dropdown-link">Awards Judging</Link>
                             <Link href="/portfolio#ventures" className="header__dropdown-link">Ventures Founded</Link>
                             <Link href="/portfolio#mentoring" className="header__dropdown-link">Mentoring & Speaking</Link>
                         </div>

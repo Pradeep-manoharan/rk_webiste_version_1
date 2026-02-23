@@ -631,6 +631,9 @@ p {
 
 /* Hero Section - Special full-viewport styling */
 .section--hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   padding-top: var(--header-height);
   background-color: var(--color-white);
   background-image: linear-gradient(to bottom,
