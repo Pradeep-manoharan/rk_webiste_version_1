@@ -4,7 +4,8 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const revalidate = 10 // Always fetch fresh data
+export const revalidate = 10
+export const dynamicParams = true // Allow slugs not generated at build time
 
 interface BlogPostPageProps {
     params: Promise<{

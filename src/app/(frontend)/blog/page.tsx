@@ -45,7 +45,7 @@ export default async function BlogPage() {
 
                     {/* Category Filter */}
                     <div style={{ marginTop: 'var(--space-6)', marginBottom: 'var(--space-4)' }}>
-                        <div className="flex gap-3 flex-wrap">
+                        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                             {categories.map((category) => (
                                 <button
                                     key={category}
@@ -59,9 +59,9 @@ export default async function BlogPage() {
                     </div>
 
                     {/* Posts Grid */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="blog-grid">
                         {posts.docs.length === 0 ? (
-                            <div className="col-span-full text-center" style={{ padding: 'var(--space-12) 0' }}>
+                            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: 'var(--space-12) 0' }}>
                                 <p style={{ color: 'var(--color-text-muted)', fontSize: 'var(--font-size-lg)' }}>
                                     No blog posts yet. Check back soon!
                                 </p>
@@ -70,9 +70,9 @@ export default async function BlogPage() {
                             posts.docs.map((post: unknown) => {
                                 const p = post as Post;
                                 return (
-                                    <article key={p.id} className="card">
+                                    <article key={p.id} className="blog-card">
                                         {p.featuredImage && (
-                                            <div className="card__image">
+                                            <div className="blog-card__image">
                                                 <Image
                                                     src={
                                                         typeof p.featuredImage === 'string'
@@ -83,22 +83,21 @@ export default async function BlogPage() {
                                                     width={400}
                                                     height={250}
                                                     unoptimized
-                                                    style={{ width: '100%', height: 'auto' }}
+                                                    style={{ width: '100%', height: '200px', objectFit: 'cover' }}
                                                 />
                                             </div>
                                         )}
-                                        <div className="card__body">
-                                            <span className="text-small" style={{ color: 'var(--color-text-muted)' }}>
+                                        <div className="blog-card__body">
+                                            <span className="blog-card__category">
                                                 {p.category || 'Uncategorized'}
                                             </span>
-                                            <h4 className="card__title" style={{ marginTop: 'var(--space-2)' }}>
+                                            <h4 className="blog-card__title">
                                                 <Link href={`/blog/${p.slug}`}>{p.title}</Link>
                                             </h4>
-                                            {p.excerpt && <p className="card__text">{p.excerpt}</p>}
+                                            {p.excerpt && <p className="blog-card__excerpt">{p.excerpt}</p>}
                                             <Link
                                                 href={`/blog/${p.slug}`}
-                                                className="text-small"
-                                                style={{ fontWeight: 'var(--font-semibold)' }}
+                                                className="blog-card__link"
                                             >
                                                 Read More →
                                             </Link>
