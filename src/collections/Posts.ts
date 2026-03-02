@@ -1,5 +1,15 @@
 import type { CollectionConfig } from 'payload'
 
+const formatSlug = (value: string): string => {
+    return value
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '') // Remove special characters
+        .replace(/[\s_]+/g, '-')   // Replace spaces and underscores with hyphens
+        .replace(/-+/g, '-')       // Remove consecutive hyphens
+        .replace(/^-+|-+$/g, '')   // Trim hyphens from start/end
+}
+
 export const Posts: CollectionConfig = {
     slug: 'posts',
     admin: {
@@ -8,6 +18,21 @@ export const Posts: CollectionConfig = {
     },
     access: {
         read: () => true, // Public can read published posts
+    },
+    hooks: {
+        beforeChange: [
+            ({ data }) => {
+                // Auto-generate slug from title if slug is empty
+                if (data && !data.slug && data.title) {
+                    data.slug = formatSlug(data.title)
+                }
+                // Always format the slug to be URL-friendly
+                if (data && data.slug) {
+                    data.slug = formatSlug(data.slug)
+                }
+                return data
+            },
+        ],
     },
     fields: [
         {
@@ -21,7 +46,7 @@ export const Posts: CollectionConfig = {
             required: true,
             unique: true,
             admin: {
-                description: 'URL-friendly version of the title',
+                description: 'URL-friendly version of the title (auto-generated if left empty)',
             },
         },
         {
@@ -95,3 +120,4 @@ export const Posts: CollectionConfig = {
         },
     ],
 }
+
