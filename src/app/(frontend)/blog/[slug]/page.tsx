@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const revalidate = 600 // Revalidate every 10 minutes
+export const revalidate = 10 // Always fetch fresh data
 
 interface BlogPostPageProps {
     params: Promise<{
