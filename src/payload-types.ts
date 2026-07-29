@@ -169,7 +169,7 @@ export interface Post {
   id: string;
   title: string;
   /**
-   * URL-friendly version of the title
+   * URL-friendly version of the title (auto-generated if left empty)
    */
   slug: string;
   /**

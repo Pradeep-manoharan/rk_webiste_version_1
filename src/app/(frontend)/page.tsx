@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import VentureCard from '@/components/VentureCard'
 import InnovationCard from '@/components/InnovationCard'
 import PhotoGallery from '@/components/PhotoGallery'
+import VenturesFilteredList from '@/components/VenturesFilteredList'
 
 export default async function HomePage() {
   return (
@@ -20,7 +20,7 @@ export default async function HomePage() {
               </p>
               <div className="hero__cta">
                 <a href="#ventures" className="btn btn--accent">View My Work</a>
-                <a href="https://forms.zohopublic.com/openventure1/form/OpenVentureProfileEvaluationWebsite/formperma/4nLvliOoETVHOSNXXApQ7p7wuUPCXUwBFdtKAk8a8dk" className="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/rathnakumar_udayakumar/lets_connect" className="btn btn--outline" target="_blank" rel="noopener noreferrer">
                   Schedule a Call
                 </a>
               </div>
@@ -30,7 +30,7 @@ export default async function HomePage() {
                 src="/images/rkheroimg.png"
                 alt="Rathnakumar - Data Science & AI Leader"
                 fill
-                style={{ objectFit: 'contain' }}
+                style={{ objectFit: 'contain', objectPosition: 'bottom center' }}
                 priority
               />
             </div>
@@ -43,43 +43,11 @@ export default async function HomePage() {
         <div className="container">
           <div className="section__header">
             <div>
-              <h2 className="section__title">Ventures</h2>
-              <p className="section__subtitle">Startups I&apos;ve founded and co-founded</p>
+              <h2 className="section__title">Founded and Funded</h2>
             </div>
             <a href="/portfolio#ventures" className="btn btn--outline btn--sm">View all →</a>
           </div>
-          <div className="section__grid section__grid--ventures">
-            <VentureCard
-              href="/portfolio#ventures"
-              logo="/venture_logo/openatlas_logo.png"
-              name="Open Atlas"
-              tagline="Empowering immigrant entrepreneurs to drive innovation"
-            />
-            <VentureCard
-              href="/portfolio#ventures"
-              logo="/venture_logo/nextazy1.jpg"
-              name="Nextazy"
-              tagline="Product innovation consultancy for modern businesses"
-            />
-            <VentureCard
-              href="/portfolio#ventures"
-              logo="/venture_logo/pawshlogo.png"
-              name="Pawsh"
-              tagline="Financial literacy platform for empowered wealth building"
-            />
-            <VentureCard
-              href="/portfolio#ventures"
-              logo="/venture_logo/socialblood.jpg"
-              name="Socialblood"
-              tagline="Connecting blood donors with recipients across India"
-            />
-            <VentureCard
-              href="/portfolio#ventures"
-              logo="/venture_logo/Shout stat.png"
-              name="ShoutStart"
-              tagline="India's first crowdfunding platform for startups"
-            />
-          </div>
+          <VenturesFilteredList variant="home" />
         </div>
       </section>
 

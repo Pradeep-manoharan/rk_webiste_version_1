@@ -1,18 +1,23 @@
 import Image from 'next/image'
+import VenturesFilteredList from '@/components/VenturesFilteredList'
 
 export default function PortfolioPage() {
     return (
         <>
-            {/* Books & Publications - Main Portfolio Section */}
-            <section className="section section--page-header" id="books">
+            {/* Ventures Founded - from Open Venture portfolio */}
+            <section className="section section--page-header" id="ventures">
                 <div className="container">
                     <span className="page-header__label">Portfolio</span>
-                    <h1 className="page-header__title">Work & Achievements</h1>
-                    <p className="page-header__subtitle">
-                        Driving innovation through technology, entrepreneurship, and data-driven transformations
-                    </p>
+                    <h1 className="page-header__title">Founded and Funded</h1>
 
-                    <h2 style={{ marginTop: 'var(--space-6)', marginBottom: '1rem', fontSize: 'var(--text-xl)' }}>Books & Publications</h2>
+                    <VenturesFilteredList variant="portfolio" />
+                </div>
+            </section>
+
+            {/* Books & Publications */}
+            <section className="section section--white" id="books">
+                <div className="container">
+                    <h2 style={{ marginBottom: '1rem', fontSize: 'var(--text-xl)' }}>Books & Publications</h2>
                     <div className="portfolio-grid portfolio-grid--2">
                         {/* Book 1 */}
                         <div className="portfolio-card portfolio-card--horizontal">
@@ -211,66 +216,6 @@ export default function PortfolioPage() {
                                 <span className="portfolio-card__label">Speaker</span>
                                 <h4 className="portfolio-card__title">Global AI Conference</h4>
                                 <p className="portfolio-card__text">International conference on artificial intelligence applications and innovations.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Ventures Founded */}
-            <section className="section section--white" id="ventures">
-                <div className="container">
-                    <h2 style={{ marginBottom: '1rem', fontSize: 'var(--text-xl)' }}>Ventures Founded</h2>
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="card card--angular">
-                            <div className="card__body">
-                                <h4 className="card__title">Open Atlas</h4>
-                                <p className="card__text">
-                                    An ecosystem for immigrants driving innovation. Connecting students, high-skill immigrants,
-                                    founders, investors, and global talent through flagship summits and pathways.
-                                </p>
-                                <span className="text-small" style={{ color: 'var(--color-text-muted)' }}>Co-Founder • 2024 - Present</span>
-                            </div>
-                        </div>
-
-                        <div className="card card--angular">
-                            <div className="card__body">
-                                <h4 className="card__title">Nextazy</h4>
-                                <p className="card__text">
-                                    Product innovation and strategy consultancy helping companies build better products.
-                                </p>
-                                <span className="text-small" style={{ color: 'var(--color-text-muted)' }}>Co-Founder • 2023 - Present</span>
-                            </div>
-                        </div>
-
-                        <div className="card card--angular">
-                            <div className="card__body">
-                                <h4 className="card__title">Pawsh</h4>
-                                <p className="card__text">
-                                    Financial literacy platform empowering individuals to take control of their financial wellness.
-                                </p>
-                                <span className="text-small" style={{ color: 'var(--color-text-muted)' }}>Founder • 2021 - 2024</span>
-                            </div>
-                        </div>
-
-                        <div className="card card--angular">
-                            <div className="card__body">
-                                <h4 className="card__title">ShoutStart</h4>
-                                <p className="card__text">
-                                    India&apos;s first crowdfunding platform. Funded 40+ startups and raised funds from Village Global,
-                                    500 Startups, and Twin Ventures.
-                                </p>
-                                <span className="text-small" style={{ color: 'var(--color-text-muted)' }}>Founder & CEO • 2015 - 2019</span>
-                            </div>
-                        </div>
-
-                        <div className="card card--angular">
-                            <div className="card__body">
-                                <h4 className="card__title">Socialblood</h4>
-                                <p className="card__text">
-                                    Social network connecting blood donors with recipients. Partnered with 100+ hospitals across India.
-                                </p>
-                                <span className="text-small" style={{ color: 'var(--color-text-muted)' }}>Founder • 2011 - 2015</span>
                             </div>
                         </div>
                     </div>
