@@ -16,6 +16,20 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/webmail',
+        destination: 'https://gator3306.hostgator.com:2096/',
+        permanent: true,
+      },
+      {
+        source: '/webmail/:path*',
+        destination: 'https://gator3306.hostgator.com:2096/',
+        permanent: true,
+      },
+    ]
+  },
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
